@@ -5,13 +5,17 @@ import static com.cyberpanterra.book_2.adapters.ViewHolder.DATA_TYPE;
 import static com.cyberpanterra.book_2.adapters.ViewHolder.THEME_TYPE;
 
 import android.annotation.SuppressLint;
+import android.graphics.Canvas;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,47 +28,75 @@ import java.util.List;
 import com.cyberpanterra.book_2.datas.Chapter;
 import com.cyberpanterra.book_2.datas.Data;
 import com.cyberpanterra.book_2.datas.Theme;
+import com.cyberpanterra.book_2.interfaces.Action;
 import com.cyberpanterra.book_2.interfaces.OnActionListener;
 import com.cyberpanterra.book_2.interfaces.OnClickListener;
+import com.google.android.material.divider.MaterialDividerItemDecoration;
+
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 /**
  * The creator of the Adapter class is Asadjon Xusanjonov
  * Created on 12:01 PM, 4/27/2022
  */
 public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filterable {
+    public static final String FAVOURITE_FRAGMENT = "FavouriteFragment";
+    public static final String MENU_FRAGMENT = "MenuFragment";
 
     final List<Data> dataList = new ArrayList<>();
-    List<Data> fullDataList = new ArrayList<>();
-    OnActionListener<Adapter, Data> onActionListener;
+    List<Data> fullDataList;
+    Action.IRAction<Data, Boolean> onActionListener;
     OnClickListener<Data> onClickListener;
     String searchedText = "";
+    final String fragmentName;
 
-    public Adapter(List<Data> dataList) {
+    public Adapter(List<Data> dataList, String fragmentName) {
         this.fullDataList = dataList;
         this.dataList.clear();
         this.dataList.addAll(fullDataList);
+
+        this.fragmentName = fragmentName;
     }
 
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setHasFixedSize(false);
-        new ItemTouchHelper(onRemoveListener).attachToRecyclerView(recyclerView);
+        recyclerView.addItemDecoration(new MaterialDividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+        new ItemTouchHelper(getRemoveListener()).attachToRecyclerView(recyclerView);
         super.onAttachedToRecyclerView(recyclerView);
     }
 
-    private final ItemTouchHelper.SimpleCallback onRemoveListener = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+    private ItemTouchHelper.SimpleCallback getRemoveListener() {
+        return new ItemTouchHelper.SimpleCallback(0, fragmentName.equals(FAVOURITE_FRAGMENT) ? ItemTouchHelper.LEFT : ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {return false;}
 
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {return false;}
-
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            if (onActionListener != null) {
-                ViewHolder holder = (ViewHolder) viewHolder;
-                onActionListener.call(Adapter.this, holder.binding.getData());
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                if (onActionListener != null) {
+                    ViewHolder holder = (ViewHolder) viewHolder;
+                    if (onActionListener.call(holder.binding.getData()))
+                        notifyItemChanged(viewHolder.getAdapterPosition());
+                }
             }
-        }
-    };
+
+            @Override
+            public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                if (fragmentName.equals(FAVOURITE_FRAGMENT)) dX =  dX >= -250 ? dX : -250;
+                else if (fragmentName.equals(MENU_FRAGMENT)) dX = dX < 250 ? dX : 250;
+
+                new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                        .addSwipeLeftBackgroundColor(ContextCompat.getColor(recyclerView.getContext(), android.R.color.holo_red_light))
+                        .addSwipeRightBackgroundColor(ContextCompat.getColor(recyclerView.getContext(), R.color.teal_200))
+                        .addSwipeLeftActionIcon(R.drawable.ic_baseline_delete_24)
+                        .addSwipeRightActionIcon(((ViewHolder) viewHolder).binding.getData().isFavourite() ? R.drawable.ic_baseline_turned_in_24_light : R.drawable.ic_baseline_turned_in_not_24_light)
+                        .setActionIconTint(ContextCompat.getColor(recyclerView.getContext(), R.color.white))
+                        .create()
+                        .decorate();
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        };
+    }
 
     @NonNull
     @Override
@@ -136,7 +168,7 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
                     StaticClass.forEach(StaticClass.whereAll(resultList, d -> !dataList.contains(d)),
                             Adapter.this::addData);
 
-                // resultList children who are not on the dataList will be added to the dataList children
+                    // resultList children who are not on the dataList will be added to the dataList children
                 else if (resultList.size() < dataList.size())
                     StaticClass.forEach(StaticClass.whereAll(dataList, d -> !resultList.contains(d)),
                             Adapter.this::removeData);
@@ -162,8 +194,8 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
     private void addItem(Data data) {
         if (!fullDataList.contains(data) || dataList.contains(data)) return;
 
-        List<Data> tempList = new ArrayList<>();
-        dataList.add(data);
+        List<Data> tempList = new ArrayList<>(dataList);
+        tempList.add(data);
         List<Data> fullList = new ArrayList<>(fullDataList);
         fullList.retainAll(tempList);
         dataList.add(fullList.indexOf(data), data);
@@ -180,8 +212,8 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
         else if (data instanceof Theme && StaticClass.whereAll(dataList, d -> d instanceof Theme && ((Theme) d).chapter.equals(((Theme) data).chapter)).isEmpty())
             removeItem(((Theme) data).chapter);
 
-        if (getItemCount() >= 1)
-            notifyItemChanged(getItemCount() - 1);
+//        if (getItemCount() >= 1)
+//            notifyItemChanged(getItemCount() - 1);
     }
 
     private boolean removeItem(Data data) {
@@ -190,7 +222,7 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
         return dataList.remove(data);
     }
 
-    public Adapter setOnActionListener(OnActionListener<Adapter, Data> Listener) {
+    public Adapter setOnActionListener(Action.IRAction<Data, Boolean> Listener) {
         onActionListener = Listener;
         return this;
     }

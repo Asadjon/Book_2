@@ -4,12 +4,10 @@ package com.cyberpanterra.book_2.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -21,10 +19,7 @@ import java.lang.Object;
 
 public abstract class ItemDataBinding extends ViewDataBinding {
   @NonNull
-  public final ImageView background;
-
-  @NonNull
-  public final CardView cardView;
+  public final LinearLayout cardViewOfItem;
 
   @NonNull
   public final LinearLayout item;
@@ -48,11 +43,10 @@ public abstract class ItemDataBinding extends ViewDataBinding {
   protected String mSearchText;
 
   protected ItemDataBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageView background, CardView cardView, LinearLayout item, TextView nameText,
-      View separatorView, TextView valueText) {
+      LinearLayout cardViewOfItem, LinearLayout item, TextView nameText, View separatorView,
+      TextView valueText) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.background = background;
-    this.cardView = cardView;
+    this.cardViewOfItem = cardViewOfItem;
     this.item = item;
     this.nameText = nameText;
     this.separatorView = separatorView;

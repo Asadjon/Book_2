@@ -126,7 +126,13 @@ public class Json {
         JSONObject jsonObject = new JSONObject();
         try {
             if (getValueType(object) == JsonType.Custom)
-                StaticClass.forEach(getFields(object.getClass()), field -> setJsonValue(object, field, jsonObject));
+                StaticClass.forEach(getFields(object.getClass()), field -> {
+                    try {
+                        setJsonValue(object, field, jsonObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                });
             else jsonObject.put(object.getClass().getSimpleName(), object);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data class=".databinding.ItemDataBinding">
+
         <import type="android.view.View" />
 
         <import type="android.widget.TextView" />
 
-        <import type="com.cyberpanterra.book_2.adapters.ViewHolder"/>
+        <import type="com.cyberpanterra.book_2.adapters.ViewHolder" />
 
-        <import type="android.graphics.Typeface"/>
+        <import type="android.graphics.Typeface" />
 
         <variable
             name="data"
@@ -24,19 +25,11 @@
             type="String" />
     </data>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
+        android:id="@+id/cardViewOfItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp">
-
-        <ImageView
-            android:id="@+id/background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/chapter_color"/>
+        android:background="@drawable/chapter_color">
 
         <LinearLayout
             android:id="@+id/item"
@@ -72,9 +65,9 @@
                 android:padding="5dp"
                 android:text="@{data.getSpannableValue(searchText)}"
                 android:textColor="@color/black"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </layout>

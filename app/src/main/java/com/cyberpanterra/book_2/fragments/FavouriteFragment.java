@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import com.cyberpanterra.book_2.adapters.Adapter;
 import com.cyberpanterra.book_2.database.FavouriteDatabase;
@@ -21,6 +22,7 @@ import com.cyberpanterra.book_2.interfaces.*;
 import com.cyberpanterra.book_2.R;
 import com.cyberpanterra.book_2.activities.ViewActivity;
 import com.cyberpanterra.book_2.databinding.FragmentMainBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 public class FavouriteFragment extends Fragment implements IOnBackPressed {
 
@@ -42,7 +44,7 @@ public class FavouriteFragment extends Fragment implements IOnBackPressed {
 
         favourites = FavouriteDatabase.getInstance(requireContext()).getFavouriteThemes();
 
-        binding.setAdapter(new Adapter(favourites.getFavouriteDataList())
+        binding.setAdapter(new Adapter(favourites.getFavouriteDataList(), Adapter.FAVOURITE_FRAGMENT)
                 .setOnClickListener(this::OnClick)
                 .setOnActionListener(this::OnRemove));
 
@@ -65,15 +67,17 @@ public class FavouriteFragment extends Fragment implements IOnBackPressed {
         startActivity(intent);
     }
 
-    public void OnRemove(Adapter adapter, Data data) {favourites.remove(data);}
+    public boolean OnRemove(Data data) {
+        if (!favourites.remove(data)) return false;
+        Snackbar.make(binding.recyclerView, "Removed - " + data.getName() + ": " + data.getValue(), Snackbar.LENGTH_SHORT)
+                .setAction("Undo", view -> {
+                    favourites.add(data);
+                }).show();
+        return false;
+    }
 
     private boolean searchViewCollapse() {
-        try {
-            return onSearchViewCollapse != null ? onSearchViewCollapse.call(null) : true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return true;
+        return onSearchViewCollapse != null ? onSearchViewCollapse.call(null) : true;
     }
 
     @Override

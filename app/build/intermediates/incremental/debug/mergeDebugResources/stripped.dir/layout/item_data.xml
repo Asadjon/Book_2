@@ -3,13 +3,14 @@
                                                         
 
     
+
                                            
 
                                                  
 
-                                                                     
+                                                                      
 
-                                                  
+                                                   
 
                  
                        
@@ -24,19 +25,11 @@
                             
            
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
+        android:id="@+id/cardViewOfItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp" android:tag="layout/item_data_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-
-        <ImageView
-            android:id="@+id/background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/chapter_color"/>
+        android:background="@drawable/chapter_color" android:tag="layout/item_data_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <LinearLayout
             android:id="@+id/item"
@@ -72,9 +65,9 @@
                 android:padding="5dp"
                 android:tag="binding_4"                             
                 android:textColor="@color/black"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
          

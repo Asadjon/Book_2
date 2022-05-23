@@ -42,9 +42,9 @@ public class MenuFragment extends Fragment implements IOnBackPressed {
 
         favourites = FavouriteDatabase.getInstance(requireContext()).getFavouriteThemes();
 
-        binding.setAdapter(new Adapter(favourites.getDataList())
+        binding.setAdapter(new Adapter(favourites.getDataList(), Adapter.MENU_FRAGMENT)
                 .setOnClickListener(this::OnClick)
-                .setOnActionListener(this::onFavorite));
+                .setOnActionListener(this::OnFavourite));
     }
 
     @Override
@@ -76,16 +76,15 @@ public class MenuFragment extends Fragment implements IOnBackPressed {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    public void OnClick(Data data) {
+    private void OnClick(Data data) {
         Intent intent = new Intent(requireContext(), ViewActivity.class);
         intent.putExtra(ViewActivity.DATA_INDEX, favourites.getDataList().indexOf(data));
         startActivity(intent);
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    public void onFavorite(@NotNull Adapter adapter, Data data) {
+    private boolean OnFavourite(Data data){
         favourites.add(data);
-        adapter.notifyItemChanged(adapter.getDataPosition(data));
+        return true;
     }
 
     private boolean searchViewCollapse() {

@@ -13,8 +13,7 @@ public class ItemDataBindingImpl extends ItemDataBinding implements com.cyberpan
     private static final android.util.SparseIntArray sViewsWithIds;
     static {
         sIncludes = null;
-        sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.background, 5);
+        sViewsWithIds = null;
     }
     // views
     // variables
@@ -25,18 +24,17 @@ public class ItemDataBindingImpl extends ItemDataBinding implements com.cyberpan
     // Inverse Binding Event Handlers
 
     public ItemDataBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private ItemDataBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.ImageView) bindings[5]
-            , (androidx.cardview.widget.CardView) bindings[0]
+            , (android.widget.LinearLayout) bindings[0]
             , (android.widget.LinearLayout) bindings[1]
             , (android.widget.TextView) bindings[2]
             , (android.view.View) bindings[3]
             , (android.widget.TextView) bindings[4]
             );
-        this.cardView.setTag(null);
+        this.cardViewOfItem.setTag(null);
         this.item.setTag(null);
         this.nameText.setTag(null);
         this.separatorView.setTag(null);

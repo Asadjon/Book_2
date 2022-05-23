@@ -35,9 +35,10 @@ public class ViewHolder extends RecyclerView.ViewHolder{
 
         int itemViewType = getItemViewType();
         binding.valueText.setTypeface(null, itemViewType == CHAPTER_TYPE ? Typeface.BOLD : Typeface.ITALIC);
-        binding.background.setImageResource(itemViewType == THEME_TYPE ? R.color.theme_color : R.drawable.chapter_color);
-        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) binding.cardView.getLayoutParams();
-        params.setMargins(20, itemViewType != THEME_TYPE ? 50 : 5, 20, position >= adapter.getItemCount()-1 ? 50 : 0);
+        binding.cardViewOfItem.setBackgroundResource(itemViewType == THEME_TYPE ? R.color.theme_color : R.drawable.chapter_color);
+        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) binding.cardViewOfItem.getLayoutParams();
+        params.topMargin = itemViewType != THEME_TYPE ? 50 : params.topMargin;
+//        params.setMargins(params.leftMargin, itemViewType != THEME_TYPE ? 50 : 5, params.rightMargin, position >= adapter.getItemCount()-1 ? 50 : 0);
     }
 }
 

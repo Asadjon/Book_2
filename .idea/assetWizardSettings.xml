@@ -352,7 +352,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$PROJECT_DIR$/../../Installations/Android%20studio/SDK/SDK/icons/material/materialicons/nights_stay/baseline_nights_stay_24.xml" />
+                                      <entry key="url" value="file:/$PROJECT_DIR$/../../../../Installations/Android%20studio/SDK/SDK/icons/material/materialicons/delete/baseline_delete_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -363,7 +363,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_nights_stay_24" />
+                            <entry key="outputName" value="ic_baseline_delete_24" />
                             <entry key="sourceFile" value="D:\Android projects\Book" />
                           </map>
                         </option>

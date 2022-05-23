@@ -47,18 +47,26 @@ public class Favourites {
         liveData.setValue(data);
     }
 
-    public void add(Data favouriteData) {
+    public boolean add(Data favouriteData) {
         if ((favouriteData instanceof Chapter && addChapter((Chapter) favouriteData)) ||
                 ((favouriteData instanceof Theme) && addTheme((Theme) favouriteData)) ||
-                addData(favouriteData))
+                addData(favouriteData)) {
             database.changeTheDatabase();
+            return true;
+        }
+
+        return false;
     }
 
-    public void remove(Data favouriteData) {
+    public boolean remove(Data favouriteData) {
         if ((favouriteData instanceof Theme && removeTheme((Theme) favouriteData)) ||
                 (favouriteData instanceof Chapter && removeChapter((Chapter) favouriteData)) ||
-                removeData(favouriteData))
+                removeData(favouriteData)) {
             database.changeTheDatabase();
+            return true;
+        }
+
+        return true;
     }
 
     private boolean addData(Data data) {

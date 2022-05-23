@@ -4,28 +4,28 @@
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xxxhdpi\\ic_baseline_account_box_24.png"
     },
     {
-        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xhdpi_ic_channel_foreground.png.flat",
-        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-xhdpi\\ic_channel_foreground.png"
-    },
-    {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\layout_activity_main.xml.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\layout\\activity_main.xml"
     },
     {
-        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xhdpi_ic_banner.png.flat",
-        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-xhdpi\\ic_banner.png"
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xhdpi_ic_channel_foreground.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-xhdpi\\ic_channel_foreground.png"
     },
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xxxhdpi_ic_baseline_turned_in_24_light.png.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xxxhdpi\\ic_baseline_turned_in_24_light.png"
     },
     {
-        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xhdpi_ic_banner_foreground.png.flat",
-        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-xhdpi\\ic_banner_foreground.png"
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xhdpi_ic_banner.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-xhdpi\\ic_banner.png"
     },
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable_chapter_color.xml.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\drawable\\chapter_color.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xhdpi_ic_banner_foreground.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-xhdpi\\ic_banner_foreground.png"
     },
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-hdpi_ic_baseline_account_box_24.png.flat",
@@ -80,6 +80,10 @@
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\layout\\item_data.xml"
     },
     {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-anydpi-v21_ic_baseline_delete_24.xml.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-anydpi-v21\\ic_baseline_delete_24.xml"
+    },
+    {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xhdpi_ic_baseline_account_box_24.png.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xhdpi\\ic_baseline_account_box_24.png"
     },
@@ -92,12 +96,12 @@
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-anydpi-v21\\ic_baseline_turned_in_24_light.xml"
     },
     {
-        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xxhdpi_ic_baseline_account_box_24.png.flat",
-        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xxhdpi\\ic_baseline_account_box_24.png"
-    },
-    {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-anydpi-v21_ic_baseline_turned_in_not_24_light.xml.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-anydpi-v21\\ic_baseline_turned_in_not_24_light.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xxhdpi_ic_baseline_account_box_24.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xxhdpi\\ic_baseline_account_box_24.png"
     },
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-hdpi_ic_baseline_view_list_24.png.flat",
@@ -120,8 +124,16 @@
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-hdpi_ic_baseline_delete_24.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-hdpi\\ic_baseline_delete_24.png"
+    },
+    {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable_author_1.jpg.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\drawable\\author_1.jpg"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-ldpi_ic_baseline_delete_24.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-ldpi\\ic_baseline_delete_24.png"
     },
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xhdpi_ic_baseline_turned_in_24_light.png.flat",
@@ -192,6 +204,10 @@
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-ldpi\\ic_baseline_turned_in_not_24_light.png"
     },
     {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xxhdpi_ic_baseline_delete_24.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xxhdpi\\ic_baseline_delete_24.png"
+    },
+    {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-mdpi_ic_search_black_24dp.png.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-mdpi\\ic_search_black_24dp.png"
     },
@@ -204,6 +220,10 @@
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-anydpi-v21\\ic_search_black_24dp.xml"
     },
     {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-mdpi_ic_baseline_delete_24.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-mdpi\\ic_baseline_delete_24.png"
+    },
+    {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.png"
     },
@@ -214,6 +234,10 @@
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-anydpi-v21_ic_baseline_view_list_24.xml.flat",
         "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-anydpi-v21\\ic_baseline_view_list_24.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xhdpi_ic_baseline_delete_24.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xhdpi\\ic_baseline_delete_24.png"
     },
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-hdpi_ic_search_black_24dp.png.flat",
@@ -274,6 +298,10 @@
     {
         "merged": "com.cyberpanterra.book_2.app-merged_res-5:/layout_item_data.xml.flat",
         "source": "com.cyberpanterra.book_2.app-main-7:/layout/item_data.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\drawable-xxxhdpi_ic_baseline_delete_24.png.flat",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-pngs-0:\\drawable-xxxhdpi\\ic_baseline_delete_24.png"
     },
     {
         "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-merged_res-5:\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
