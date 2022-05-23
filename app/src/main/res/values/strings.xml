@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Normative bases of preschool education</string>
+    <string name="activity_author_name">Authors</string>
+    <string name="title_menu">Menu</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_open_data">Theme</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_delete">Delete</string>
+    <string name="title_search">Search</string>
+    <string name="title_empty">List is empty</string>
+</resources>

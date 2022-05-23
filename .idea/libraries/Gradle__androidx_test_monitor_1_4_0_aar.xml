@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.test:monitor:1.4.0@aar">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../Installations/Android studio/Gradle/.gradle/caches/transforms-2/files-2.1/c0f52a74cc2896fcaa7d45715aaf1e53/monitor-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0f52a74cc2896fcaa7d45715aaf1e53/monitor-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/58959bff7f84224f49ca61ba255db665/transformed/monitor-1.4.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/transforms-3/9d0b1edd6d48e194091a04183322113d/transformed/monitor-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9d0b1edd6d48e194091a04183322113d/transformed/monitor-1.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/059ddd9dd84e9736a86f0c31984dda88/transformed/monitor-1.4.0/res" />
+      <root url="jar://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/transforms-3/059ddd9dd84e9736a86f0c31984dda88/transformed/monitor-1.4.0/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/transforms-3/059ddd9dd84e9736a86f0c31984dda88/transformed/monitor-1.4.0/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/transforms-3/059ddd9dd84e9736a86f0c31984dda88/transformed/monitor-1.4.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/modules-2/files-2.1/androidx.test/monitor/1.4.0/2770e38fa6d39242c2fa2e9d2ca3275b1d9debd8/monitor-1.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/modules-2/files-2.1/androidx.test/monitor/1.4.0/5d892d39aae695079e3ecc7a841336ff3aeaf40/monitor-1.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

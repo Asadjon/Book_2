@@ -1,0 +1,109 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.cyberpanterra.book_2"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:5:5-32:19
+12        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+12-->[androidx.core:core:1.7.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\4e91bb4229fbd7e765a9cee323946538\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+13        android:debuggable="true"
+14        android:icon="@mipmap/ic_launcher"
+14-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:6:9-43
+15        android:label="@string/app_name"
+15-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:7:9-41
+16        android:roundIcon="@mipmap/ic_launcher"
+16-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:8:9-48
+17        android:supportsRtl="true"
+17-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:9:9-35
+18        android:testOnly="true"
+19        android:theme="@style/Theme.Book" >
+19-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:10:9-42
+20        <activity
+20-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:11:9-17:53
+21            android:name="com.cyberpanterra.book_2.activities.ViewActivity"
+21-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:12:13-76
+22            android:configChanges="orientation|keyboardHidden|screenSize"
+22-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:13:13-74
+23            android:label="@string/title_open_data"
+23-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:14:13-52
+24            android:parentActivityName="com.cyberpanterra.book_2.activities.MainActivity"
+24-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:16:13-90
+25            android:screenOrientation="fullSensor"
+25-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:17:13-51
+26            android:theme="@style/Theme.Book.Fullscreen" />
+26-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:15:13-57
+27        <activity
+27-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:18:9-21:53
+28            android:name="com.cyberpanterra.book_2.activities.AuthorActivity"
+28-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:19:13-78
+29            android:label="@string/activity_author_name"
+29-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:20:13-57
+30            android:screenOrientation="fullSensor" />
+30-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:21:13-51
+31        <activity
+31-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:22:9-31:20
+32            android:name="com.cyberpanterra.book_2.activities.MainActivity"
+32-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:22:19-82
+33            android:exported="true"
+33-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:23:13-36
+34            android:launchMode="singleTop"
+34-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:24:13-43
+35            android:screenOrientation="fullSensor" >
+35-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:25:13-51
+36            <intent-filter>
+36-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:26:13-30:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:27:17-69
+37-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:27:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:29:17-77
+39-->D:\Android projects\BookProject\Book_2\Project\app\src\main\AndroidManifest.xml:29:27-74
+40            </intent-filter>
+41        </activity>
+42
+43        <uses-library
+43-->[androidx.window:window:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\3da3cb55dad8985f065cc7cc4a255d33\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+44            android:name="androidx.window.extensions"
+44-->[androidx.window:window:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\3da3cb55dad8985f065cc7cc4a255d33\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+45            android:required="false" />
+45-->[androidx.window:window:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\3da3cb55dad8985f065cc7cc4a255d33\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+46        <uses-library
+46-->[androidx.window:window:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\3da3cb55dad8985f065cc7cc4a255d33\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+47            android:name="androidx.window.sidecar"
+47-->[androidx.window:window:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\3da3cb55dad8985f065cc7cc4a255d33\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+48            android:required="false" />
+48-->[androidx.window:window:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\3da3cb55dad8985f065cc7cc4a255d33\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+49
+50        <provider
+50-->[androidx.emoji2:emoji2:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\0484bbf5ee8b76d7db78e8e3feb01b17\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+51            android:name="androidx.startup.InitializationProvider"
+51-->[androidx.emoji2:emoji2:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\0484bbf5ee8b76d7db78e8e3feb01b17\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:27:13-67
+52            android:authorities="com.cyberpanterra.book_2.androidx-startup"
+52-->[androidx.emoji2:emoji2:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\0484bbf5ee8b76d7db78e8e3feb01b17\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:28:13-68
+53            android:exported="false" >
+53-->[androidx.emoji2:emoji2:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\0484bbf5ee8b76d7db78e8e3feb01b17\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:29:13-37
+54            <meta-data
+54-->[androidx.emoji2:emoji2:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\0484bbf5ee8b76d7db78e8e3feb01b17\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+55                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+55-->[androidx.emoji2:emoji2:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\0484bbf5ee8b76d7db78e8e3feb01b17\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:32:17-75
+56                android:value="androidx.startup" />
+56-->[androidx.emoji2:emoji2:1.0.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\0484bbf5ee8b76d7db78e8e3feb01b17\transformed\jetified-emoji2-1.0.0\AndroidManifest.xml:33:17-49
+57            <meta-data
+57-->[androidx.lifecycle:lifecycle-process:2.4.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\efbac93b1126fb04e53de30de302d460\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+58                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.4.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\efbac93b1126fb04e53de30de302d460\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+59                android:value="androidx.startup" />
+59-->[androidx.lifecycle:lifecycle-process:2.4.0] D:\Installations\Android studio\Gradle\.gradle\caches\transforms-3\efbac93b1126fb04e53de30de302d460\transformed\jetified-lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+60        </provider>
+61    </application>
+62
+63</manifest>

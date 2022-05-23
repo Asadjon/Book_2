@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class=".databinding.ItemDataBinding">
+        <import type="android.view.View" />
+
+        <import type="android.widget.TextView" />
+
+        <import type="com.cyberpanterra.book_2.adapters.ViewHolder"/>
+
+        <import type="android.graphics.Typeface"/>
+
+        <variable
+            name="data"
+            type="com.cyberpanterra.book_2.datas.Data" />
+
+        <variable
+            name="click"
+            type="com.cyberpanterra.book_2.interfaces.OnClickListener" />
+
+        <variable
+            name="searchText"
+            type="String" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/chapter_color"/>
+
+        <LinearLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> click.onClick(data)}"
+            android:orientation="horizontal"
+            android:padding="7dp">
+
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="5dp"
+                android:text="@{data.getSpannableName(searchText)}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/separatorView"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:visibility="@{data.name.empty || data.value.empty ? View.GONE : View.VISIBLE}" />
+
+            <TextView
+                android:id="@+id/valueText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="5dp"
+                android:text="@{data.getSpannableValue(searchText)}"
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

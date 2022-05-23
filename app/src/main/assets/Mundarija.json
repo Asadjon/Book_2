@@ -1,0 +1,346 @@
+{
+  "Contents": [
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Data",
+      "Id": 0,
+      "Name": "ВВЕДЕНИЕ",
+      "Value": "",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 3,
+        "toPage": 4
+      }
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Chapter",
+      "Id": 1,
+      "Name": "I МОДУЛЬ",
+      "Value": "СИСТЕМА И ВИДЫ ОБРАЗОВАНИЯ В РЕСПУБЛИКЕ УЗБЕКИСТАН. ЗАКОН РЕСПУБЛИКИ УЗБЕКИСТАН “ОБ ОБРАЗОВАНИИ”",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 5,
+        "toPage": 47
+      },
+      "Themes": [
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 0,
+          "Name": "1.1",
+          "Value": "Система и виды образования в Республике Узбекистан",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 5,
+            "toPage": 13
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 1,
+          "Name": "1.2",
+          "Value": "Закон Республики Узбекистан “Об образовании”",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 14,
+            "toPage": 47
+          }
+        }
+      ]
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Chapter",
+      "Id": 2,
+      "Name": "II МОДУЛЬ",
+      "Value": "НОРМАТИВНО-ПРАВОВЫЕ ОСНОВЫ СИСТЕМЫ ДОШКОЛЬНОГО ОБРАЗОВАНИЯ В РЕСПУБЛИКЕ УЗБЕКИСТАН",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 48,
+        "toPage": 85
+      },
+      "Themes": [
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 0,
+          "Name": "2.1",
+          "Value": "Меры по дальнейшему совершенствованию системы\nДошкольного образования на 2017 — 2021 годы.",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 48,
+            "toPage": 51
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 1,
+          "Name": "2.2",
+          "Value": "Коренное совершенствование управления системой Дошкольного образования",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 52,
+            "toPage": 56
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 2,
+          "Name": "2.3",
+          "Value": "Формирование министерства дошкольного образования",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 57,
+            "toPage": 60
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 3,
+          "Name": "2.4",
+          "Value": "Положения “О Министерстве Дошкольного образования Республики Узбекистан",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 61,
+            "toPage": 71
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 4,
+          "Name": "2.5",
+          "Value": "Устав Института переподготовки и повышения квалификации руководителей и специалистов дошкольных образовательных учреждений",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 72,
+            "toPage": 79
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 5,
+          "Name": "2.6",
+          "Value": "Концепция развития системы Дошкольного образования Республики Узбекистан",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 80,
+            "toPage": 85
+          }
+        }
+      ]
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Chapter",
+      "Id": 3,
+      "Name": "III МОДУЛЬ",
+      "Value": "ГОСУДАРСТВЕННЫЕ ТРЕБОВАНИЯ К РАЗВИТИЮ ДЕТЕЙ И РАННЕГО ДОШКОЛЬНОГО ВОЗРАСТА В РЕСПУБЛИКИ УЗБЕКИСТАН ",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 86,
+        "toPage": 108
+      },
+      "Themes": [
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 0,
+          "Name": "3.1",
+          "Value": "Приказ МДО об утверждении Государственных требований к развитию детей раннего и дошкольного возраста Республики Узбекистан",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 83,
+            "toPage": 89
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 1,
+          "Name": "3.2",
+          "Value": "Требования к развитию детей раннего возраста (1-3 лет)",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 90,
+            "toPage": 103
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 2,
+          "Name": "3.3",
+          "Value": "Требования к развитию детей раннего возраста (3-7 лет)",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 104,
+            "toPage": 108
+          }
+        }
+      ]
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Chapter",
+      "Id": 4,
+      "Name": "IV МОДУЛЬ",
+      "Value": "ПОЛОЖЕНИЕ О ГОСУДАРСТВЕННЫХ И НЕГОСУДАРСТВЕННЫХ ДОШКОЛЬНЫХ ОБРАЗОВАТЕЛЬНЫХ ОРГАНИЗАЦИЯХ ОБЩЕГО ТИПА",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 109,
+        "toPage": 149
+      },
+      "Themes": [
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 0,
+          "Name": "4.1",
+          "Value": "Постановление О мерах по дальнейшему совершенствованию деятельности дошкольных образовательных организаций",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 109,
+            "toPage": 121
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 1,
+          "Name": "4.2",
+          "Value": "Деятельность государственных и негосударственных\nДошкольных образовательных организациях общего типа",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 122,
+            "toPage": 130
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 2,
+          "Name": "4.3",
+          "Value": "Положение о группах кратковременного пребывания в дошкольных образовательных организациях",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 131,
+            "toPage": 135
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 3,
+          "Name": "4.4",
+          "Value": "Положение о многопрофильных специализированных дошкольных образовательных организациях и дошкольных образовательных организациях комбинированного типа",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 136,
+            "toPage": 141
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 4,
+          "Name": "4.5",
+          "Value": "Положение о медико-психолого-педагогической комиссии по направлению детей в многопрофильные специализированные дошкольные образовательные организации и дошкольные образовательные организации комбинированного типа",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 142,
+            "toPage": 149
+          }
+        }
+      ]
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Chapter",
+      "Id": 5,
+      "Name": "V МОДУЛЬ",
+      "Value": "“ПЕРВЫЙ ШАГ”   ГОСУДАРСТВЕННАЯ ОБРАЗОВАТЕЛЬНАЯ ПРОГРАММА ДОШКОЛЬНОГО ОБРАЗОВАТЕЛЬНОГО УЧРЕЖДЕНИЯ.",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 150,
+        "toPage": 158
+      },
+      "Themes": [
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 0,
+          "Name": "5.1",
+          "Value": "Общее положение государственной образовательной программы",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 150,
+            "toPage": 154
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 1,
+          "Name": "5.2",
+          "Value": "Учебно-воспитательная деятельность и предметно-развивающая среда",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 155,
+            "toPage": 158
+          }
+        }
+      ]
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Chapter",
+      "Id": 6,
+      "Name": "VI МОДУЛЬ",
+      "Value": "ИСПОЛЬЗОВАНИЕ ЗАКОНОДАТЕЛЬСТВА В ПРАВОВОМ ВОСПИТАНИИ ДЕТЕЙ",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 159,
+        "toPage": 204
+      },
+      "Themes": [
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 0,
+          "Name": "6.1",
+          "Value": "Конституция Республики Узбекистан",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 159,
+            "toPage": 162
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 1,
+          "Name": "6.2",
+          "Value": "Конвенция организации ЮНЕСКО “О защите прав детей”",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 163,
+            "toPage": 181
+          }
+        },
+        {
+          "Class": "com.cyberpanterra.book_2.datas.Theme",
+          "Id": 2,
+          "Name": "6.3",
+          "Value": "Закон Республики Узбекистан «О дошкольном образовании и воспитании»",
+          "isFavourite": false,
+          "Pages": {
+            "fromPage": 182,
+            "toPage": 204
+          }
+        }
+      ]
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Data",
+      "Id": 6,
+      "Name": "ТЕСТ",
+      "Value": "",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 205,
+        "toPage": 215
+      }
+    },
+    {
+      "Class": "com.cyberpanterra.book_2.datas.Data",
+      "Id": 8,
+      "Name": "ЛИТЕРАТУРА",
+      "Value": "",
+      "isFavourite": false,
+      "Pages": {
+        "fromPage": 216,
+        "toPage": 217
+      }
+    }
+  ]
+}

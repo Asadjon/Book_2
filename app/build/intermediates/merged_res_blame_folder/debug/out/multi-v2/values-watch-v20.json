@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.cyberpanterra.book_2.app-mergeDebugResources-3:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\caches\\transforms-3\\cafe69f27159b8e160ecb30fb74ddc08\\transformed\\appcompat-1.4.1\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

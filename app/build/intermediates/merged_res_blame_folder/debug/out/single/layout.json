@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-mergeDebugResources-4:\\layout\\fragment_main.xml",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\layout\\fragment_main.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-mergeDebugResources-4:\\layout\\item_data.xml",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\layout\\item_data.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-mergeDebugResources-4:\\layout\\activity_author.xml",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\layout\\activity_author.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-mergeDebugResources-4:\\layout\\activity_main.xml",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-mergeDebugResources-4:\\layout\\activity_view.xml",
+        "source": "D:\\Installations\\Android studio\\Gradle\\.gradle\\daemon\\7.3.3\\com.cyberpanterra.book_2.app-main-7:\\layout\\activity_view.xml"
+    },
+    {
+        "merged": "com.cyberpanterra.book_2.app-mergeDebugResources-4:/layout/item_data.xml",
+        "source": "com.cyberpanterra.book_2.app-main-7:/layout/item_data.xml"
+    }
+]

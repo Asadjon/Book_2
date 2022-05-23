@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Maktabgacha ta\'limning me\'yoriy asoslari</string>
+    <string name="activity_author_name">Mualliflar</string>
+    <string name="title_menu">Mundarija</string>
+    <string name="title_favourite">Sevimlilar</string>
+    <string name="title_open_data">Mavzu</string>
+    <string name="title_notifications">Bildirishnomalar</string>
+    <string name="title_delete">Oʻchirish</string>
+    <string name="title_search">Qidirmoq</string>
+    <string name="title_empty">Ro‘yxat bo‘sh</string>
+</resources>
