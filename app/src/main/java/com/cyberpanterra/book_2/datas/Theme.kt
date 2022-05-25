@@ -11,10 +11,10 @@ class Theme : Data {
     @JvmField
     @Serializable(serialize = false)
     @Deserializable(deserialize = false)
-    val chapter: Chapter
+    var chapter = Chapter()
 
-    constructor() : super() { chapter = Chapter() }
-    constructor(newTheme: Data?) : super(newTheme!!) { chapter = Chapter() }
+    constructor() : super()
+    constructor(newTheme: Data) : super(newTheme)
     constructor(
         chapter: Chapter,
         id: Int,

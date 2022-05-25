@@ -3442,6 +3442,7 @@ string title_menu
 string title_notifications
 string title_open_data
 string title_search
+string title_undo
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style AndroidThemeColorAccentYellow

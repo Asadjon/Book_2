@@ -1,10 +1,12 @@
 package com.cyberpanterra.book_2.json;
 
+import static com.cyberpanterra.book_2.interactions.StaticClass.*;
+
 import androidx.annotation.NonNull;
 
-import com.cyberpanterra.book_2.interactions.StaticClass;
 import com.cyberpanterra.book_2.json.annotations.*;
 
+import org.jetbrains.annotations.Nullable;
 import org.json.*;
 
 import java.lang.annotation.Annotation;
@@ -42,7 +44,7 @@ public class Json {
         T value = null;
         try {
             value = clazz.newInstance();
-            if (jsonObject != null) value = serialize(clazz.newInstance(), jsonObject);
+            if (jsonObject != null) value = serialize(value, jsonObject);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -53,7 +55,7 @@ public class Json {
     }
 
     protected <T> T serialize(T object, JSONObject jsonObject) {
-        StaticClass.forEach(getFields(object.getClass()),
+        forEach(getFields(object.getClass()),
                 field -> setFieldValue(field, object, getValue(field, jsonObject)));
         return object;
     }
@@ -64,7 +66,7 @@ public class Json {
      * @param obj changes the parameters values
      * @param value the value of the {@code field} parameter
      */
-    protected void setFieldValue(Field field, Object obj, Object value){
+    protected void setFieldValue(Field field, Object obj, @Nullable Object value){
         // value should not be equal to null,
         // if equal to null the field value will not change!
         if (value != null) {
@@ -105,8 +107,15 @@ public class Json {
             case JsonArray: {
                 Class<?> genericTypeClass = (Class<?>) ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0];
 
-                List<?> listValue = StaticClass.<JSONObject, Object> getJsonListAt((JSONArray) value,
-                        target -> serialize(genericTypeClass, target));
+                List<?> listValue;
+                try {
+                    listValue = getJsonListAt((JSONArray) value,
+                            target -> (Object) serialize(genericTypeClass, (JSONObject) target));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    value = null;
+                    break;
+                }
 
                 if (field.getType().isInstance(listValue))
                     value = listValue;
@@ -126,13 +135,7 @@ public class Json {
         JSONObject jsonObject = new JSONObject();
         try {
             if (getValueType(object) == JsonType.Custom)
-                StaticClass.forEach(getFields(object.getClass()), field -> {
-                    try {
-                        setJsonValue(object, field, jsonObject);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                });
+                forEach(getFields(object.getClass()), field -> setJsonValue(object, field, jsonObject));
             else jsonObject.put(object.getClass().getSimpleName(), object);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -141,14 +144,18 @@ public class Json {
         return jsonObject;
     }
 
-    protected void setJsonValue(Object object, Field field, JSONObject jsonObject) throws JSONException {
+    protected void setJsonValue(Object object, Field field, JSONObject jsonObject){
         // Get attributes of field
         String serializedName = getSerializedName(field);
 
         // Check the field serializable and has jsonObject the serializedName?
         if (!isDeserialized(field)) return;
 
-        jsonObject.put(serializedName, getFieldValue(object, field));
+        try {
+            jsonObject.put(serializedName, getFieldValue(object, field));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     protected Object getFieldValue(Object object, Field field) {
@@ -168,10 +175,10 @@ public class Json {
                 value = deserialize(value);
                 break;
             case Collection:
-                value = StaticClass.getJsonListAt((List<?>) value, this::deserialize);
+                value = getJsonListAt((List<?>) value, this::deserialize);
                 break;
             case Array:
-                value = StaticClass.getJsonListAt(Arrays.asList((Object[]) value), this::deserialize);
+                value = getJsonListAt(Arrays.asList((Object[]) value), this::deserialize);
                 break;
         }
 

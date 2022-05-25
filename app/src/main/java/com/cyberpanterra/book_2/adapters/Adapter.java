@@ -1,8 +1,6 @@
 package com.cyberpanterra.book_2.adapters;
 
-import static com.cyberpanterra.book_2.adapters.ViewHolder.CHAPTER_TYPE;
-import static com.cyberpanterra.book_2.adapters.ViewHolder.DATA_TYPE;
-import static com.cyberpanterra.book_2.adapters.ViewHolder.THEME_TYPE;
+import static com.cyberpanterra.book_2.adapters.ViewHolder.*;
 
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
@@ -13,7 +11,6 @@ import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.ViewCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -25,12 +22,8 @@ import com.cyberpanterra.book_2.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cyberpanterra.book_2.datas.Chapter;
-import com.cyberpanterra.book_2.datas.Data;
-import com.cyberpanterra.book_2.datas.Theme;
-import com.cyberpanterra.book_2.interfaces.Action;
-import com.cyberpanterra.book_2.interfaces.OnActionListener;
-import com.cyberpanterra.book_2.interfaces.OnClickListener;
+import com.cyberpanterra.book_2.datas.*;
+import com.cyberpanterra.book_2.interfaces.*;
 import com.google.android.material.divider.MaterialDividerItemDecoration;
 
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
@@ -43,7 +36,7 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
     public static final String FAVOURITE_FRAGMENT = "FavouriteFragment";
     public static final String MENU_FRAGMENT = "MenuFragment";
 
-    final List<Data> dataList = new ArrayList<>();
+    final List<Data> dataList;
     List<Data> fullDataList;
     Action.IRAction<Data, Boolean> onActionListener;
     OnClickListener<Data> onClickListener;
@@ -52,9 +45,7 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
 
     public Adapter(List<Data> dataList, String fragmentName) {
         this.fullDataList = dataList;
-        this.dataList.clear();
-        this.dataList.addAll(fullDataList);
-
+        this.dataList = new ArrayList<>(fullDataList);
         this.fragmentName = fragmentName;
     }
 
@@ -73,17 +64,15 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                if (onActionListener != null) {
-                    ViewHolder holder = (ViewHolder) viewHolder;
-                    if (onActionListener.call(holder.binding.getData()))
-                        notifyItemChanged(viewHolder.getAdapterPosition());
-                }
+                if (onActionListener != null && onActionListener.call(((ViewHolder) viewHolder).binding.getData()))
+                    notifyItemChanged(viewHolder.getAdapterPosition());
             }
 
             @Override
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-                if (fragmentName.equals(FAVOURITE_FRAGMENT)) dX =  dX >= -250 ? dX : -250;
-                else if (fragmentName.equals(MENU_FRAGMENT)) dX = dX < 250 ? dX : 250;
+                final float maxX = .15f;
+                final float x = c.getWidth() * maxX * (fragmentName.equals(FAVOURITE_FRAGMENT) ? -1 : 1);
+                dX =  Math.abs(dX) < Math.abs(x) ? dX : x;
 
                 new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                         .addSwipeLeftBackgroundColor(ContextCompat.getColor(recyclerView.getContext(), android.R.color.holo_red_light))
@@ -211,9 +200,6 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> implements Filtera
 
         else if (data instanceof Theme && StaticClass.whereAll(dataList, d -> d instanceof Theme && ((Theme) d).chapter.equals(((Theme) data).chapter)).isEmpty())
             removeItem(((Theme) data).chapter);
-
-//        if (getItemCount() >= 1)
-//            notifyItemChanged(getItemCount() - 1);
     }
 
     private boolean removeItem(Data data) {

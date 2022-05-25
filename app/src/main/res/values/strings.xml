@@ -8,4 +8,5 @@
     <string name="title_delete">Delete</string>
     <string name="title_search">Search</string>
     <string name="title_empty">List is empty</string>
+    <string name="title_undo" translatable="false">Undo</string>
 </resources>

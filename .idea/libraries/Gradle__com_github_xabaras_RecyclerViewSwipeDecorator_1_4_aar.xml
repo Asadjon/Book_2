@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.xabaras:RecyclerViewSwipeDecorator:1.4@aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/transforms-3/554f9d8c57b1a4e4379dbc2ec0c77879/transformed/jetified-RecyclerViewSwipeDecorator-1.4/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/transforms-3/554f9d8c57b1a4e4379dbc2ec0c77879/transformed/jetified-RecyclerViewSwipeDecorator-1.4/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/transforms-3/554f9d8c57b1a4e4379dbc2ec0c77879/transformed/jetified-RecyclerViewSwipeDecorator-1.4/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../../Installations/Android studio/Gradle/.gradle/caches/modules-2/files-2.1/com.github.xabaras/RecyclerViewSwipeDecorator/1.4/f5bead40c824b4dfc9f0e885d9cee852d0e05c7a/RecyclerViewSwipeDecorator-1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

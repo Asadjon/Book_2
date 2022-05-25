@@ -3441,6 +3441,7 @@ int string title_menu 0x7f10008a
 int string title_notifications 0x7f10008b
 int string title_open_data 0x7f10008c
 int string title_search 0x7f10008d
+int string title_undo 0x7f10008e
 int style AlertDialog_AppCompat 0x7f110000
 int style AlertDialog_AppCompat_Light 0x7f110001
 int style AndroidThemeColorAccentYellow 0x7f110002

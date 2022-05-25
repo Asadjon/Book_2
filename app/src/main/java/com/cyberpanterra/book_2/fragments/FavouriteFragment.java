@@ -1,22 +1,19 @@
 package com.cyberpanterra.book_2.fragments;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SearchView;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.lifecycle.Observer;
 
+import com.cyberpanterra.book_2.activities.MainActivity;
 import com.cyberpanterra.book_2.adapters.Adapter;
 import com.cyberpanterra.book_2.database.FavouriteDatabase;
 import com.cyberpanterra.book_2.database.Favourites;
 import com.cyberpanterra.book_2.datas.*;
-import com.cyberpanterra.book_2.interactions.StaticClass;
 import com.cyberpanterra.book_2.interfaces.*;
 
 import com.cyberpanterra.book_2.R;
@@ -28,15 +25,12 @@ public class FavouriteFragment extends Fragment implements IOnBackPressed {
 
     private Favourites favourites;
     private FragmentMainBinding binding;
-    private Action.IRAction<Void, Boolean> onSearchViewCollapse;
 
-    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return (binding = FragmentMainBinding.inflate(inflater, container, false)).getRoot();
     }
 
-    @SuppressLint({"ClickableViewAccessibility", "NotifyDataSetChanged"})
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -61,58 +55,50 @@ public class FavouriteFragment extends Fragment implements IOnBackPressed {
         });
     }
 
-    public void OnClick(Data data) {
-        Intent intent = new Intent(requireContext(), ViewActivity.class);
-        intent.putExtra(ViewActivity.DATA_INDEX, favourites.getDataList().indexOf(data));
-        startActivity(intent);
+    private void OnClick(Data data) {
+        startActivity(new Intent(requireContext(), ViewActivity.class)
+                .putExtra(ViewActivity.DATA_INDEX, favourites.getDataList().indexOf(data)));
     }
 
-    public boolean OnRemove(Data data) {
+    private boolean OnRemove(Data data) {
         if (!favourites.remove(data)) return false;
         Snackbar.make(binding.recyclerView, "Removed - " + data.getName() + ": " + data.getValue(), Snackbar.LENGTH_SHORT)
-                .setAction("Undo", view -> {
-                    favourites.add(data);
-                }).show();
+                .setAction(binding.recyclerView.getContext().getResources().getString(R.string.title_undo), view -> favourites.add(data)).show();
         return false;
-    }
-
-    private boolean searchViewCollapse() {
-        return onSearchViewCollapse != null ? onSearchViewCollapse.call(null) : true;
     }
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         MenuItem menuItem_search = menu.findItem(R.id.action_search);
 
-        onSearchViewCollapse = target -> {
-            if (menuItem_search.isActionViewExpanded()) {
-                MenuItemCompat.collapseActionView(menuItem_search);
-                return false;
-            } else return true;
-        };
+        Observer<Data> observer = data -> menuItem_search.setEnabled(!favourites.getFavouriteDataList().isEmpty());
+        observer.onChanged(null);
 
-        SearchView mSearchView = (SearchView) menuItem_search.getActionView();
-        mSearchView.setOnQueryTextListener(onQueryTextListener);
+        favourites.getAddedData().observe(this, observer);
+        favourites.getRemovedData().observe(this, observer);
 
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    private final SearchView.OnQueryTextListener onQueryTextListener = new SearchView.OnQueryTextListener() {
-        @Override
-        public boolean onQueryTextSubmit(String query) {return false;}
-
-        @Override
-        public boolean onQueryTextChange(String newText) {
-            binding.getAdapter().getFilter().filter(newText);
-            return false;
-        }
-    };
-
-    private void favouriteEmpty(boolean isEmpty) {
-        binding.setEmptyTextShow(isEmpty);
-        if (isEmpty) searchViewCollapse();
+    @Override
+    public void onStart() {
+        super.onStart();
+        MainActivity.getActivity().searchViewCollapse();
+        MainActivity.getActivity().getOnQueryTextChange().put(Adapter.FAVOURITE_FRAGMENT, newText ->
+                binding.getAdapter().getFilter().filter(newText));
     }
 
     @Override
-    public boolean onBackPressed() {return searchViewCollapse();}
+    public void onDestroy() {
+        super.onDestroy();
+        MainActivity.getActivity().getOnQueryTextChange().remove(Adapter.FAVOURITE_FRAGMENT);
+    }
+
+    private void favouriteEmpty(boolean isEmpty) {
+        binding.setEmptyTextShow(isEmpty);
+        if (isEmpty) MainActivity.getActivity().searchViewCollapse();
+    }
+
+    @Override
+    public boolean onBackPressed() {return true;}
 }

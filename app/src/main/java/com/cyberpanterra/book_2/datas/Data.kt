@@ -3,6 +3,8 @@ package com.cyberpanterra.book_2.datas
 import android.os.Build
 import android.text.Spannable
 import com.cyberpanterra.book_2.interactions.StaticClass
+import com.cyberpanterra.book_2.json.annotations.Deserializable
+import com.cyberpanterra.book_2.json.annotations.Serializable
 import com.cyberpanterra.book_2.json.annotations.SerializedName
 import java.util.*
 
@@ -19,7 +21,8 @@ open class Data @JvmOverloads constructor(
 ) {
 
     @SerializedName("Class")
-    val clazz: Class<*>
+    @Serializable(serialize = false)
+    val className: String = javaClass.name
 
     constructor(newData: Data) : this(
         newData.id,
@@ -59,5 +62,4 @@ open class Data @JvmOverloads constructor(
                 '}'
     }
 
-    init { clazz = javaClass }
 }
