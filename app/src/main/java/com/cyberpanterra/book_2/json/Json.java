@@ -66,7 +66,7 @@ public class Json {
      * @param obj changes the parameters values
      * @param value the value of the {@code field} parameter
      */
-    protected void setFieldValue(Field field, Object obj, @Nullable Object value){
+    protected void setFieldValue(@NonNull Field field, @NonNull Object obj, @Nullable Object value){
         // value should not be equal to null,
         // if equal to null the field value will not change!
         if (value != null) {

@@ -58,7 +58,7 @@ public class ViewActivity extends AppCompatActivity {
         binding = ActivityViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        favourites = FavouriteDatabase.getInstance(this).getFavouriteThemes();
+        favourites = FavouriteDatabase.init(this).getFavourites();
         data = favourites.getDataList().get(getIntent().getIntExtra(DATA_INDEX, 0));
 
         actionBar = getSupportActionBar();

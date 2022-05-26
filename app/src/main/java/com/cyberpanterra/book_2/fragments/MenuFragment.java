@@ -24,7 +24,7 @@ public class MenuFragment extends Fragment implements IOnBackPressed {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
 
-        Favourites favourites = FavouriteDatabase.getInstance(requireContext()).getFavouriteThemes();
+        Favourites favourites = FavouriteDatabase.init(requireContext()).getFavourites();
 
         FragmentMainBinding binding = FragmentMainBinding.inflate(inflater, container, false);
         binding.setAdapter(new Adapter(favourites.getDataList(), Adapter.MENU_FRAGMENT)
@@ -37,7 +37,7 @@ public class MenuFragment extends Fragment implements IOnBackPressed {
                     return true;
                 }));
 
-        onQueryTextChange = newText -> binding.getAdapter().getFilter().filter(newText);
+        onQueryTextChange = binding.getAdapter()::searchData;
 
         return binding.getRoot();
     }
@@ -50,8 +50,8 @@ public class MenuFragment extends Fragment implements IOnBackPressed {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
         MainActivity.getActivity().getOnQueryTextChange().remove(Adapter.MENU_FRAGMENT);
     }
 

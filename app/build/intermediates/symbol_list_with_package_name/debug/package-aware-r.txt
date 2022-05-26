@@ -1277,6 +1277,7 @@ color cardview_shadow_end_color
 color cardview_shadow_start_color
 color chapter_color
 color checkbox_themeable_attribute_color
+color color_of_searching
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -2695,7 +2696,6 @@ id cache_measures
 id callMeasure
 id cancel_action
 id cancel_button
-id cardViewOfItem
 id carryVelocity
 id center
 id center_horizontal

@@ -1276,6 +1276,7 @@ int color cardview_shadow_end_color 0x7f05002e
 int color cardview_shadow_start_color 0x7f05002f
 int color chapter_color 0x7f050030
 int color checkbox_themeable_attribute_color 0x7f050031
+int color color_of_searching 0x7f050260
 int color design_bottom_navigation_shadow_color 0x7f050032
 int color design_box_stroke_color 0x7f050033
 int color design_dark_default_color_background 0x7f050034
@@ -2694,7 +2695,6 @@ int id cache_measures 0x7f08006a
 int id callMeasure 0x7f08006b
 int id cancel_action 0x7f08006c
 int id cancel_button 0x7f08006d
-int id cardViewOfItem 0x7f08006e
 int id carryVelocity 0x7f08006f
 int id center 0x7f080070
 int id center_horizontal 0x7f080071

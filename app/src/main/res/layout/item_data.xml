@@ -2,15 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data class=".databinding.ItemDataBinding">
+    <data>
 
         <import type="android.view.View" />
-
-        <import type="android.widget.TextView" />
-
-        <import type="com.cyberpanterra.book_2.adapters.ViewHolder" />
-
-        <import type="android.graphics.Typeface" />
 
         <variable
             name="data"
@@ -26,48 +20,48 @@
     </data>
 
     <LinearLayout
-        android:id="@+id/cardViewOfItem"
+        android:id="@+id/item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/chapter_color">
+        android:background="@drawable/chapter_color"
+        android:onClick="@{() -> click.onClick(data)}"
+        android:orientation="horizontal"
+        android:padding="7dp">
 
-        <LinearLayout
-            android:id="@+id/item"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> click.onClick(data)}"
-            android:orientation="horizontal"
-            android:padding="7dp">
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:color_of_highlight="@{@color/color_of_searching}"
+            app:data_text="@{data.name}"
+            app:text_to_highlight="@{searchText}" />
 
-            <TextView
-                android:id="@+id/nameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="5dp"
-                android:text="@{data.getSpannableName(searchText)}"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+        <View
+            android:id="@+id/separatorView"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:visibility="@{data.name.empty || data.value.empty ? View.GONE : View.VISIBLE}" />
 
-            <View
-                android:id="@+id/separatorView"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@color/black"
-                android:visibility="@{data.name.empty || data.value.empty ? View.GONE : View.VISIBLE}" />
-
-            <TextView
-                android:id="@+id/valueText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="5dp"
-                android:text="@{data.getSpannableValue(searchText)}"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/valueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            app:color_of_highlight="@{@color/color_of_searching}"
+            app:data_text="@{data.value}"
+            app:text_to_highlight="@{searchText}" />
 
     </LinearLayout>
 </layout>

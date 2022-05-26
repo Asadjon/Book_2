@@ -1,18 +1,11 @@
 package com.cyberpanterra.book_2.interactions;
 
-/* 
-    The creator of the StaticClass class is Asadjon Xusanjonov
-    Created on 16:02, 24.03.2022
-*/
-
-import android.content.Context;
-import android.graphics.Rect;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.BackgroundColorSpan;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
+
+import androidx.databinding.BindingAdapter;
 
 import com.cyberpanterra.book_2.interfaces.Action;
 
@@ -21,37 +14,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
+/**
+ *    The creator of the StaticClass class is Asadjon Xusanjonov
+ *    Created on 16:02, 24.03.2022
+ */
 public class StaticClass {
 
-    public static Spannable setHighLightedText(String text, String textToHighlight) {
-        String tvt = text.toUpperCase().trim();
+    public static Spannable setHighLightedText(String text, String textToHighlight, int color) {
+        String textUpperCase = text.toUpperCase().trim();
         Spannable wordToSpan = new SpannableString(text);
 
-        if (textToHighlight.isEmpty() || !tvt.contains(textToHighlight.toUpperCase().trim())) return wordToSpan;
+        if (textToHighlight.isEmpty() || !textUpperCase.contains(textToHighlight.toUpperCase().trim())) return wordToSpan;
 
-        for (int i = 0; i < tvt.length() && (i = tvt.indexOf(textToHighlight, i)) >= 0;)
-            wordToSpan.setSpan(new BackgroundColorSpan(0xFFFFFF00), i, i += textToHighlight.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        for (int i = 0; i < textUpperCase.length() && (i = textUpperCase.indexOf(textToHighlight, i)) >= 0;)
+            wordToSpan.setSpan(new BackgroundColorSpan(color), i, i += textToHighlight.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         return wordToSpan;
     }
 
-    public static boolean keyboardShown(View rootView) {
-        final int softKeyboardHeight = 100;
-        Rect r = new Rect();
-        rootView.getWindowVisibleDisplayFrame(r);
-        DisplayMetrics dm = rootView.getResources().getDisplayMetrics();
-        int heightDiff = rootView.getBottom() - r.bottom;
-        return heightDiff > softKeyboardHeight * dm.density;
-    }
-
-    public static void setShowKeyboard(Context context, View view, boolean isShow){
-        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        if(!isShow) inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        else inputMethodManager.showSoftInputFromInputMethod(view.getWindowToken(), 1);
+    @BindingAdapter({"data_text", "text_to_highlight", "color_of_highlight"})
+    public static void setHighLightedText(TextView textView, String text, String textToHighlight, int color) {
+        textView.setText(setHighLightedText(text, textToHighlight, color));
     }
 
     public static <T> void forEach(List<T> list,  Action.IAction<T> function){

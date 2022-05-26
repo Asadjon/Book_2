@@ -1,8 +1,9 @@
 package com.cyberpanterra.book_2.database;
 
+import static com.cyberpanterra.book_2.interactions.StaticClass.*;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -29,7 +30,7 @@ public class Favourites {
     public Favourites(Context context) {
         database = FavouriteDatabaseController.Companion.init(context);
         dataList = database.getFavouriteList();
-        favouriteDataList = StaticClass.whereAll(dataList, Data::isFavourite);
+        favouriteDataList = whereAll(dataList, Data::isFavourite);
     }
 
     public List<Data> getDataList() {return dataList;}
@@ -43,7 +44,7 @@ public class Favourites {
     private void reimportFavouriteList(Data data, MutableLiveData<Data> liveData) {
         data.setFavourite(!data.isFavourite());
         favouriteDataList.clear();
-        favouriteDataList.addAll(StaticClass.whereAll(dataList, Data::isFavourite));
+        favouriteDataList.addAll(whereAll(dataList, Data::isFavourite));
         liveData.setValue(data);
     }
 
@@ -71,53 +72,41 @@ public class Favourites {
 
     private boolean addData(Data data) {
         if (data.isFavourite()) return false;
-
         reimportFavouriteList(data, addedData);
-
         return true;
     }
 
     private boolean addChapter(Chapter chapter) {
         if (addData(chapter)) {
-            StaticClass.trueAll(chapter.themeList, this::addTheme);
+            forEach(chapter.getThemeList(), this::addTheme);
             return true;
         }
-        else return StaticClass.trueAll(chapter.themeList, theme -> !theme.isFavourite() && addTheme(theme));
+        else return trueAll(chapter.getThemeList(), theme -> !theme.isFavourite() && addTheme(theme));
     }
 
     private boolean addTheme(Theme theme) {
-        boolean isDataChapterChanged = addData(theme.chapter);
-        boolean isThemeAdded = !theme.isFavourite();
-
-        if (isThemeAdded) {
-            reimportFavouriteList(theme, addedData);
-        }
-
-        return isDataChapterChanged || isThemeAdded;
+        boolean isChapterChanged = addData(theme.chapter);
+        return addData(theme) || isChapterChanged;
     }
 
     private boolean removeData(Data data) {
         if (!data.isFavourite()) return false;
-
         reimportFavouriteList(data, removedData);
         return true;
     }
 
-    @SuppressLint("StaticFieldLeak")
     private boolean removeChapter(Chapter chapter) {
         if (!removeData(chapter)) return false;
 
-        StaticClass.forEach(StaticClass.whereAll(chapter.themeList, Theme::isFavourite), this::removeTheme);
+        forEach(whereAll(chapter.getThemeList(), Theme::isFavourite), this::removeTheme);
 
         return true;
     }
 
     private boolean removeTheme(Theme theme) {
-        if (!theme.isFavourite()) return false;
+        if (!removeData(theme)) return false;
 
-        reimportFavouriteList(theme, removedData);
-
-        if (!StaticClass.contains(theme.chapter.themeList, Theme::isFavourite))
+        if (!contains(theme.chapter.getThemeList(), Theme::isFavourite))
             removeData(theme.chapter);
 
         return true;

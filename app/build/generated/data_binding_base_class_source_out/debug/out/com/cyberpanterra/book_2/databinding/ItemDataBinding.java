@@ -19,9 +19,6 @@ import java.lang.Object;
 
 public abstract class ItemDataBinding extends ViewDataBinding {
   @NonNull
-  public final LinearLayout cardViewOfItem;
-
-  @NonNull
   public final LinearLayout item;
 
   @NonNull
@@ -43,10 +40,8 @@ public abstract class ItemDataBinding extends ViewDataBinding {
   protected String mSearchText;
 
   protected ItemDataBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      LinearLayout cardViewOfItem, LinearLayout item, TextView nameText, View separatorView,
-      TextView valueText) {
+      LinearLayout item, TextView nameText, View separatorView, TextView valueText) {
     super(_bindingComponent, _root, _localFieldCount);
-    this.cardViewOfItem = cardViewOfItem;
     this.item = item;
     this.nameText = nameText;
     this.separatorView = separatorView;

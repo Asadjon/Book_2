@@ -1,16 +1,12 @@
 package com.cyberpanterra.book_2.datas
 
 import android.os.Build
-import android.text.Spannable
-import com.cyberpanterra.book_2.interactions.StaticClass
-import com.cyberpanterra.book_2.json.annotations.Deserializable
-import com.cyberpanterra.book_2.json.annotations.Serializable
 import com.cyberpanterra.book_2.json.annotations.SerializedName
 import java.util.*
 
 /**
-The creator of the Data class is Asadjon Xusanjonov
-Created on 12:00, 07.04.2022
+*    The creator of the Data class is Asadjon Xusanjonov
+*    Created on 12:00, 07.04.2022
  */
 open class Data @JvmOverloads constructor(
     @field:SerializedName("Id") val id: Int = 0,
@@ -20,10 +16,6 @@ open class Data @JvmOverloads constructor(
     @field:SerializedName("Pages") val pages: Pages = Pages()
 ) {
 
-    @SerializedName("Class")
-    @Serializable(serialize = false)
-    val className: String = javaClass.name
-
     constructor(newData: Data) : this(
         newData.id,
         newData.name,
@@ -32,12 +24,9 @@ open class Data @JvmOverloads constructor(
         newData.pages
     )
 
-    fun getSpannableName(searchText: String?): Spannable {
-        return StaticClass.setHighLightedText(name, searchText)
-    }
-
-    fun getSpannableValue(searchText: String?): Spannable {
-        return StaticClass.setHighLightedText(value, searchText)
+    open fun isSearchResult(searchingText: String): Boolean {
+        return name.uppercase(Locale.getDefault()).contains(searchingText) ||
+                value.uppercase(Locale.getDefault()).contains(searchingText)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -56,7 +45,7 @@ open class Data @JvmOverloads constructor(
         return this.javaClass.simpleName + "{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", value='" + value + '\'' +
+//                ", value='" + value + '\'' +
                 ", isFavourite='" + isFavourite + '\'' +
                 ", pages=" + pages +
                 '}'

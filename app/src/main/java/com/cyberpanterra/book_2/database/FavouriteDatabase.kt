@@ -7,17 +7,17 @@ import android.content.Context
  * Created on 10:39, 26.03.2022
  */
 class FavouriteDatabase private constructor(context: Context) {
-    val favouriteThemes: Favourites
+    val favourites: Favourites
 
     companion object {
         private var database: FavouriteDatabase? = null
         @JvmStatic
-        fun getInstance(context: Context): FavouriteDatabase {
+        fun init(context: Context): FavouriteDatabase {
             return database ?: FavouriteDatabase(context).also { database = it }
         }
     }
 
     init {
-        favouriteThemes = Favourites(context)
+        favourites = Favourites(context)
     }
 }

@@ -4,8 +4,8 @@ import com.cyberpanterra.book_2.json.annotations.Deserializable
 import com.cyberpanterra.book_2.json.annotations.Serializable
 
 /**
-    The creator of the Theme class is Asadjon Xusanjonov
-    Created on 8:43, 23.03.2022
+*    The creator of the Theme class is Asadjon Xusanjonov
+*    Created on 8:43, 23.03.2022
 */
 class Theme : Data {
     @JvmField

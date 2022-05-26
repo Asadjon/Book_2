@@ -6,26 +6,25 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 /**
-    The creator of the Chapter class is Asadjon Xusanjonov
-    Created on 8:38, 23.03.2022
-*/
+The creator of the Chapter class is Asadjon Xusanjonov
+Created on 8:38, 23.03.2022
+ */
 class Chapter() : Data() {
     @JvmField
     @SerializedName("Themes")
-    val themeList: MutableList<Theme> = ArrayList()
+    var themes: List<Theme> = ArrayList()
 
-    fun getThemeList(): List<Theme> {
-        return themeList
+    var themeList: List<Theme>
+    get() { return themes }
+    set(themes) {
+        this.themes = themes
+        StaticClass.forEach(this.themes) { it.chapter = this }
     }
 
-    fun getFavouritesList(): MutableList<Theme> {
-        return StaticClass.whereAll(themeList){it.isFavourite}
-    }
-
-    fun isSearchResult(searchingText: String): Boolean {
-        return StaticClass.whereAll(themeList) {
+    override fun isSearchResult(searchingText: String): Boolean {
+        return super.isSearchResult(searchingText) || StaticClass.contains(themeList) {
             it.name.uppercase(Locale.getDefault()).contains(searchingText) ||
                     it.value.uppercase(Locale.getDefault()).contains(searchingText)
-        }.isNotEmpty()
+        }
     }
 }

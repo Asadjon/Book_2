@@ -36,22 +36,22 @@ public class FavouriteFragment extends Fragment implements IOnBackPressed {
         super.onViewCreated(view, savedInstanceState);
         setHasOptionsMenu(true);
 
-        favourites = FavouriteDatabase.getInstance(requireContext()).getFavouriteThemes();
+        favourites = FavouriteDatabase.init(requireContext()).getFavourites();
 
         binding.setAdapter(new Adapter(favourites.getFavouriteDataList(), Adapter.FAVOURITE_FRAGMENT)
                 .setOnClickListener(this::OnClick)
                 .setOnActionListener(this::OnRemove));
 
-        favouriteEmpty(favourites.getFavouriteDataList().isEmpty());
+        checkFavouriteIsEmpty();
 
         favourites.getRemovedData().observe(requireActivity(), data -> {
             binding.getAdapter().removeData(data);
-            favouriteEmpty(favourites.getFavouriteDataList().isEmpty());
+            checkFavouriteIsEmpty();
         });
 
         favourites.getAddedData().observe(requireActivity(), data -> {
             binding.getAdapter().addData(data);
-            favouriteEmpty(favourites.getFavouriteDataList().isEmpty());
+            checkFavouriteIsEmpty();
         });
     }
 
@@ -84,17 +84,17 @@ public class FavouriteFragment extends Fragment implements IOnBackPressed {
     public void onStart() {
         super.onStart();
         MainActivity.getActivity().searchViewCollapse();
-        MainActivity.getActivity().getOnQueryTextChange().put(Adapter.FAVOURITE_FRAGMENT, newText ->
-                binding.getAdapter().getFilter().filter(newText));
+        MainActivity.getActivity().getOnQueryTextChange().put(Adapter.FAVOURITE_FRAGMENT, binding.getAdapter()::searchData);
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
         MainActivity.getActivity().getOnQueryTextChange().remove(Adapter.FAVOURITE_FRAGMENT);
     }
 
-    private void favouriteEmpty(boolean isEmpty) {
+    private void checkFavouriteIsEmpty() {
+        boolean isEmpty = favourites.getFavouriteDataList().isEmpty();
         binding.setEmptyTextShow(isEmpty);
         if (isEmpty) MainActivity.getActivity().searchViewCollapse();
     }

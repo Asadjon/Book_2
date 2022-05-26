@@ -4,9 +4,9 @@ import android.content.Context
 import android.util.Log
 import java.io.*
 
-/* 
-   The creator of the DatabaseCopyFromAssets class is Asadjon Xusanjonov
-   Created on 18:25, 17.02.2021
+/**
+*   The creator of the DatabaseCopyFromAssets class is Asadjon Xusanjonov
+*   Created on 18:25, 17.02.2021
 */
 const val TAG: String = "DatabaseCopyFromAssets"
 

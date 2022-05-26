@@ -17,22 +17,25 @@ class FavouriteDatabaseController(context: Context, fileName: String) :
     DatabaseCopyFromAssets(context, fileName) {
 
     private val json = CustomJson()
+    private var database = getDatabase()
     var favouriteList = favouriteDatabase
 
     fun changeTheDatabase() {favouriteDatabase = favouriteList}
 
     private var favouriteDatabase: List<Data?>
-        get() { return json.serialize(Contents::class.java, jsonObject).getExplodedList() }
-        set(chapters) { saveFile(json.deserialize(Contents(chapters)).toString()) }
+        get() { return (if (database != null) json.serialize(Contents::class.java, database) else Contents()).getExplodedList() }
+        set(chapters) { database = json.deserialize(Contents(chapters)) }
 
-    private val jsonObject: JSONObject? get() {
+    private fun getDatabase(): JSONObject? {
         return try {
             JSONObject(getFileValue())
         } catch (e: JSONException) {
             e.printStackTrace()
-            return null
+            null
         }
     }
+
+    fun saveDatabase(){ saveFile(database.toString()) }
 
     companion object {
         @SuppressLint("StaticFieldLeak")

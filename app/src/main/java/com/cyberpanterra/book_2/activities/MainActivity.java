@@ -6,31 +6,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.cyberpanterra.book_2.database.FavouriteDatabase;
-
-import com.cyberpanterra.book_2.database.FavouriteRepository;
-import com.cyberpanterra.book_2.interactions.StaticClass;
-
-import com.cyberpanterra.book_2.interfaces.Action;
-import com.cyberpanterra.book_2.interfaces.IOnBackPressed;
-
-import com.cyberpanterra.book_2.R;
-import com.cyberpanterra.book_2.databinding.ActivityMainBinding;
-import com.cyberpanterra.book_2.ui.FavouriteViewModel;
-import com.cyberpanterra.book_2.ui.FavouriteViewModelFactory;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import org.jetbrains.annotations.NotNull;
+import com.cyberpanterra.book_2.R;
+import com.cyberpanterra.book_2.database.FavouriteDatabase;
+import com.cyberpanterra.book_2.database.FavouriteDatabaseController;
+import com.cyberpanterra.book_2.databinding.ActivityMainBinding;
+import com.cyberpanterra.book_2.interactions.StaticClass;
+import com.cyberpanterra.book_2.interfaces.Action;
+import com.cyberpanterra.book_2.interfaces.IOnBackPressed;
 
 import java.util.HashMap;
 
@@ -38,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String BOOK_NAME = "Book_2.pdf";
     public static final String DATABASE_NAME = "Mundarija.json";
     private static MainActivity activity;
-    public static MainActivity getActivity() { return activity; }
+
+    public static MainActivity getActivity() {return activity;}
 
     private NavHostFragment navHostFragment;
     private final HashMap<String, Action.IAction<String>> onQueryTextChange = new HashMap<>();
@@ -47,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FavouriteViewModel favouriteViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) provideFavouriteViewModelFactory()).get(FavouriteViewModel.class);
+        FavouriteDatabase.init(this);
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         activity = this;
@@ -60,11 +53,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-    }
-
-    @NotNull
-    private FavouriteViewModelFactory provideFavouriteViewModelFactory() {
-        return new FavouriteViewModelFactory(FavouriteRepository.getInstance(FavouriteDatabase.getInstance(this).getFavouriteThemes()));
     }
 
     @Override
@@ -100,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
 
         EditText editTextOfSearchView = searchView.findViewById(androidx.appcompat.R.id.search_src_text);
         editTextOfSearchView.setTextColor(getResources().getColor(R.color.white));
-        editTextOfSearchView.getViewTreeObserver().addOnGlobalLayoutListener(() -> StaticClass.keyboardShown(editTextOfSearchView.getRootView()));
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -122,18 +109,20 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        FavouriteDatabaseController.init(this).saveDatabase();
         activity = null;
+        super.onDestroy();
     }
 
     @Override
     public void onBackPressed() {
-        Fragment fragment = null;
-        if (navHostFragment != null)
-            fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
+        if (navHostFragment == null) {
+            super.onBackPressed();
+            return;
+        }
 
-        if (fragment instanceof IOnBackPressed) {
-            if (((IOnBackPressed) fragment).onBackPressed()) super.onBackPressed();
-        } else super.onBackPressed();
+        Fragment fragment = navHostFragment.getChildFragmentManager().getFragments().get(0);
+
+        if (!(fragment instanceof IOnBackPressed) || ((IOnBackPressed) fragment).onBackPressed()) super.onBackPressed();
     }
 }

@@ -19,4 +19,5 @@
     <color name="ic_launcher_background">#D3E8FD</color>
     <color name="ic_channel_background">#D3E8FD</color>
     <color name="ic_banner_background">#D3E8FD</color>
+    <color name="color_of_searching">@color/black_overlay</color>
 </resources>
